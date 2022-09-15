@@ -1,0 +1,28 @@
+import wollokGameWorlds.*
+
+describe "Jugador"{
+	const ramon = new Jugador(antiguedad = 1)
+	
+	/* Se corre antes de cada test, 
+	 * Nos sirve para configurar cositas
+	method initialize(){
+		ramon.aumentarAntiguedad(10)
+	}
+	*/
+	
+	test "Un jugador no titular no puede jugar"{
+		assert.notThat(ramon.puedeJugar())
+	}
+	
+	test "Un jugador si puede jugar"{
+		ramon.aumentarAntiguedad(10)
+		assert.that(ramon.puedeJugar())
+	}
+}
+
+describe "Jugar"{
+	test "Fake tira error"{
+		faker.tiltearse()
+		assert.throwsExceptionWithMessage("Faker no puede jugar", {faker.jugar()})
+	}
+}
